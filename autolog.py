@@ -1,3 +1,6 @@
+'''
+用于校园网的自动登录
+'''
 import urllib.request
 def atuoLogin(username,passwd):
 	url='http://10.3.8.211'
