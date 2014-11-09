@@ -100,10 +100,7 @@ def getSoup(url,type,reProcess,reConTimes=3):
 
 def buildHtml(year):
 	dataFilePath='e:\\patent\\patent-cn-{0}.txt'.format(str(year))
-	if os.path.exists(dataFilePath):
-		htmlFilePath='e:\\patent\\patent-cn-{0}.html'.format(str(year))
-		soup=BeautifulSoup('<html><head></head><body><ul></ul></body></html>')
-		ul=soup.ul
+	if os.path.exists(dataFilePath):		
 		patents=[]
 		with open(dataFilePath,'r') as f:
 			for each_line in f:
@@ -123,6 +120,7 @@ def buildHtml(year):
 			li.append(a)
 			li.append(patent['rate'])
 			ul.append(li)
+		htmlFilePath='e:\\patent\\patent-cn-{0}.html'.format(str(year))
 		with open(htmlFilePath,'w') as f:			
 			f.write(soup.prettify())
 
