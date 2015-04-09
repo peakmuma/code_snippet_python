@@ -17,7 +17,7 @@ def processTrSoup(trSoup):
 	aSoup=tdSoups[1].find('h3').a
 	commentNum=tdSoups[5].string
 	print(aSoup.get('href'))
-	print(aSoup.string)
+	print(str(aSoup.string,encoding='gbk'))
 	print(commentNum)
 
 def getSoup(url,reConTimes=3):
