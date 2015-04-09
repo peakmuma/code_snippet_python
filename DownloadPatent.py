@@ -33,8 +33,7 @@ def getAMonthPatent(year,month):
 	print('第 %d 个月搜索完成'%(month))
 
 def processTimeOutURLs():
-	global dayTimeOutURLs
-	global patentTimeOutURLs
+	global dayTimeOutURLs,patentTimeOutURLs
 	for dayUrl in dayTimeOutURLs:
 		processDayUrl(dayUrl,False)
 	for patentUrl in patentTimeOutURLs:
@@ -86,8 +85,7 @@ def getSoup(url,type,reProcess,reConTimes=3):
 		except Exception as e:
 			pass
 	if reProcess:
-		global dayTimeOutURLs
-		global patentTimeOutURLs
+		global dayTimeOutURLs,patentTimeOutURLs
 		if type=='day':
 			dayTimeOutURLs.append(url)
 		else:
@@ -123,8 +121,3 @@ def buildHtml(year):
 		htmlFilePath='e:\\patent\\patent-cn-{0}.html'.format(str(year))
 		with open(htmlFilePath,'w') as f:			
 			f.write(soup.prettify())
-
-
-
-
-
