@@ -5,17 +5,19 @@ from operator import itemgetter
 external_url='http://gfw74.info/thread0806.php?fid=22&search=&page={0}'
 external_list=[]
 
-def getUrl():
-	for i in range(8):
+def getUrl(page):
+	for i in range(page):
 		pageUrl=external_url.format(str(i+2))
 		pageSoup=getSoup(pageUrl)
 		if pageSoup is not None:
 			trSoups=pageSoup.findAll('tr',class_='tr3 t_one')
 			for trSoup in trSoups:
 				processTrSoup(trSoup)
+				print('第%d页搜索完成'%(i+2))
 	global external_list
 	external_list=sorted(external_list,key=itemgetter('commentNum'),reverse=True)
-	print(external_list[:10])
+	for i in range(10)
+		print(external_list[i])
 
 def processTrSoup(trSoup):
 	tdSoups=trSoup.contents
@@ -32,7 +34,7 @@ def getSoup(url,reConTimes=3):
 				return BeautifulSoup(res.read().decode('gb2312','ignore'))						
 		except Exception as e:
 			pass
-	path='e:\\gfw74\\unSucessUrlList.txt'
+	path='/home/peakmuma/code/python/unSuccessfulUrl/gfw74'
 	with open(path,'a') as f:
 		f.write(url+'\n')
 	return None
